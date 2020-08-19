@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>AR Puzzle</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/build/aframe.min.js"></script>
+	<script src="js/build/aframe-ar.js"></script>
+</head>
+
+<body>
+	<button class="takePhoto">Take Photo</button>
+	<a-scene embedded arjs='trackingMethod: best; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+		<a-marker type='barcode' value='1'></a-marker>
+		<a-marker type='barcode' value='2'></a-marker>
+		<a-marker type='barcode' value='3'></a-marker>
+		<a-marker type='barcode' value='5'></a-marker>
+		<a-marker type='barcode' value='6'></a-marker>
+		<a-marker type='barcode' value='7'></a-marker>
+		<a-marker type='barcode' value='9'></a-marker>
+		<a-marker type='barcode' value='10'></a-marker>
+		<a-marker type='barcode' value='11'></a-marker>
+		<a-marker-camera preset='hiro'></a-marker-camera>
+	</a-scene>
+	<div class="solved">
+		<a class="restart" href="./index.html">Restart</a>
+	</div>
+	<a href="./assets/patterns.jpg" download class="download">Download Puzzle</a>
+</body>
+
+</html>
