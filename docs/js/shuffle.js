@@ -33,7 +33,7 @@
 
     constraints = {
       video: {
-        width: 720,
+        width: 1080,
         height: 720,
       }
     };
