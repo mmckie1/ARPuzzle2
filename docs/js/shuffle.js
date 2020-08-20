@@ -114,7 +114,7 @@
       const aImg = document.createElement(`a-image`);
 
       aImg.setAttribute(`rotation`, `-90 0 0`);
-      aImg.setAttribute(`position`, `0 0 0`)
+      aImg.setAttribute(`position`, `0 0 0`);
       aImg.setAttribute(`src`, imgPieces[puzzle[i]]);
 
       marker.appendChild(aImg);
