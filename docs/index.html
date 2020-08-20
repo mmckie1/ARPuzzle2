@@ -6,15 +6,16 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>AR Puzzle</title>
 	<link rel="stylesheet" href="css/style.css">
-	<script src="js/build/aframe.min.js"></script>
-	<script src="js/build/aframe-ar.js"></script>
+	<!-- <script src="js/build/aframe.min.js"></script>
+	<script src="js/build/aframe-ar.js"></script> -->
+	<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+	  <!-- we import arjs version without NFT but with marker + location based support -->
+	<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 </head>
 
 <body>
 	<button class="takePhoto">Take Photo</button>
-	<div class="select">
-		<label for="videoSource">Video source: </label><select id="videoSource"></select>
-	</div>
+	
 	<a-scene embedded arjs='trackingMethod: best; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
 		<a-marker type='barcode' value='1'></a-marker>
 		<a-marker type='barcode' value='2'></a-marker>
@@ -29,6 +30,9 @@
 	</a-scene>
 	<div class="solved">
 		<a class="restart" href="./index.html">Restart</a>
+	</div>
+	<div class="select">
+		<label for="videoSource">Video source: </label><select id="videoSource"></select>
 	</div>
 	<a href="./assets/patterns.jpg" download class="download">Download Puzzle</a>
 	<script src="js/shuffle.js"></script>
