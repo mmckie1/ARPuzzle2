@@ -55,3 +55,8 @@ body {
   font-size: 2rem;
   align-self: center;
 }
+
+a-scene {
+  height: 300px;
+  width: 600px;
+}
