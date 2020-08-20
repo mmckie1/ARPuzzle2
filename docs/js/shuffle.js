@@ -49,7 +49,7 @@
 
   const gotDevices = deviceInfos => {
     for (let i = 0; i !== deviceInfos.length; ++i) {
-      var deviceInfo = deviceInfo[i];
+      var deviceInfo = deviceInfos[i];
       console.log('Found media input or output device: ', deviceInfo);
       var option = document.createElement('option');
       option.value = deviceInfo.deviceId;
