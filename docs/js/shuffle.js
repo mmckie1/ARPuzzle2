@@ -1,7 +1,7 @@
 {
   const image = new Image(),
     takePhotoButton = document.querySelector('.takePhoto');
-    videoSelect = document.querySelector('select#videoSource');
+    videoSelect = document.querySelector('.select');
 
   let constraints, imageCapture, mediaStream, video;
 
