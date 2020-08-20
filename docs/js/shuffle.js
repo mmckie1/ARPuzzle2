@@ -20,6 +20,7 @@
   const init = () => {
     video = document.querySelector(`video`);
     navigator.mediaDevices.enumerateDevices()
+      .then(gotDevices)
       .catch(error => console.log('enumerateDevices() error: ', error))
       .then(getStream);
 
@@ -40,7 +41,7 @@
     };
 
     navigator.mediaDevices.getUserMedia(constraints)
-      .then(gotDevices)
+      .then(gotStream)
       .catch(error => {
         console.log('getUserMedia error: ', error);
       });
