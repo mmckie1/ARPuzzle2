@@ -33,11 +33,16 @@
       mediaStream.getTracks().forEach(track => track.stop());
     }
 
+    // constraints = {
+    //   video: {
+    //     width: 720,
+    //     height: 720,
+    //   }
+    // };
+
+    var videoSource = videoSelect.value;
     constraints = {
-      video: {
-        width: 720,
-        height: 720,
-      }
+      video: {deviceId: videoSource ? {exact: videoSource} : undefined}
     };
 
     navigator.mediaDevices.getUserMedia(constraints)
