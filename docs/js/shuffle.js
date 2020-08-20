@@ -1,7 +1,7 @@
 {
   const image = new Image(),
     takePhotoButton = document.querySelector('.takePhoto');
-    // videoSelect = document.querySelector('select#videoSource');
+    videoSelect = document.querySelector('select#videoSource');
 
   let constraints, imageCapture, mediaStream, video;
 
@@ -35,17 +35,17 @@
       mediaStream.getTracks().forEach(track => track.stop());
     }
 
-    constraints = {
-      video: {
-        width: 720,
-        height: 720,
-      }
-    };
-
-    // var videoSource = videoSelect.value;
     // constraints = {
-    //   video: {deviceId: videoSource ? {exact: videoSource} : undefined}
+    //   video: {
+    //     width: 720,
+    //     height: 720,
+    //   }
     // };
+
+    var videoSource = videoSelect.value;
+    constraints = {
+      video: {deviceId: videoSource ? {exact: videoSource} : undefined}
+    };
 
     navigator.mediaDevices.getUserMedia(constraints)
       .then(gotStream)
@@ -54,18 +54,18 @@
       });
   }
 
-  // const gotDevices = deviceInfos => {
-  //   for (let i = 0; i !== deviceInfos.length; ++i) {
-  //     var deviceInfo = deviceInfos[i];
-  //     console.log('Found media input or output device: ', deviceInfo);
-  //     var option = document.createElement('option');
-  //     option.value = deviceInfo.deviceId;
-  //     if (deviceInfo.kind === 'videoinput') {
-  //       option.text = deviceInfo.label || 'Camera ' + (videoSelect.length + 1);
-  //       videoSelect.appendChild(option);
-  //     }
-  //   }
-  // };
+  const gotDevices = deviceInfos => {
+    for (let i = 0; i !== deviceInfos.length; ++i) {
+      var deviceInfo = deviceInfos[i];
+      console.log('Found media input or output device: ', deviceInfo);
+      var option = document.createElement('option');
+      option.value = deviceInfo.deviceId;
+      if (deviceInfo.kind === 'videoinput') {
+        option.text = deviceInfo.label || 'Camera ' + (videoSelect.length + 1);
+        videoSelect.appendChild(option);
+      }
+    }
+  };
 
   // Display the stream from the currently selected camera source, and then
 // create an ImageCapture object, using the video from the stream.
