@@ -12,6 +12,9 @@
 
 <body>
 	<button class="takePhoto">Take Photo</button>
+	<div class="select">
+		<label for="videoSource">Video source: </label><select id="videoSource"></select>
+	</div>
 	<a-scene embedded arjs='trackingMethod: best; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
 		<a-marker type='barcode' value='1'></a-marker>
 		<a-marker type='barcode' value='2'></a-marker>

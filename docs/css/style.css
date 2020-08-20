@@ -57,4 +57,13 @@ body {
   align-self: center;
 }
 
+.select {
+  /*margin: 0 1em 1em 0;*/
+  position: absolute;
+  bottom: 10rem;
+  padding: .5rem 2rem;
+  /*background-color: blue;*/
+  /*color: white;*/
+  /*top: -1px;*/
+}
 

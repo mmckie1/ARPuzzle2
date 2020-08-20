@@ -1,6 +1,7 @@
 {
   const image = new Image(),
     takePhotoButton = document.querySelector('.takePhoto');
+    videoSelect = document.querySelector('select#videoSource');
 
   let constraints, imageCapture, mediaStream, video;
 
@@ -44,6 +45,19 @@
         console.log('getUserMedia error: ', error);
       });
   }
+
+  const gotDevices = deviceInfos => {
+    for (let i = 0; i !== deviceInfos.length; ++i) {
+      var deviceInfo = deviceInfo[i];
+      console.log('Found media input or output device: ', deviceInfo);
+      var option = document.createElement('option');
+      option.value = deviceInfo.deviceId;
+      if (deviceInfo.kind === 'videoinput') {
+        option.text = deviceInfo.label || 'Camera ' + (videoSelect.length + 1);
+        videoSelect.appendChild(option);
+      }
+    }
+  };
 
   const gotStream = stream => {
     mediaStream = stream;
