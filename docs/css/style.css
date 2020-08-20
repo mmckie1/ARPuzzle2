@@ -14,6 +14,7 @@ body {
   justify-content: center;
 }
 
+
 .takePhoto { /* stylelint-disable-line */
   z-index: 300;
   position: absolute;
@@ -56,7 +57,4 @@ body {
   align-self: center;
 }
 
-a-scene {
-  height: 300px;
-  width: 600px;
-}
+
