@@ -20,7 +20,7 @@
   const init = () => {
     video = document.querySelector(`video`);
     navigator.mediaDevices.enumerateDevices()
-      .then(gotDevices)
+      //.then(gotDevices)
       .catch(error => console.log('enumerateDevices() error: ', error))
       .then(getStream);
 
@@ -35,17 +35,17 @@
       mediaStream.getTracks().forEach(track => track.stop());
     }
 
-    // constraints = {
-    //   video: {
-    //     width: 720,
-    //     height: 720,
-    //   }
-    // };
-
-    var videoSource = videoSelect.value;
     constraints = {
-      video: {deviceId: videoSource ? {exact: videoSource} : undefined}
+      video: {
+        width: 720,
+        height: 720,
+      }
     };
+
+    // var videoSource = videoSelect.value;
+    // constraints = {
+    //   video: {deviceId: videoSource ? {exact: videoSource} : undefined}
+    // };
 
     navigator.mediaDevices.getUserMedia(constraints)
       .then(gotStream)
