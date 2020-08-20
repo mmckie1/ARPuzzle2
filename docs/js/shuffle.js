@@ -40,7 +40,7 @@
     };
 
     navigator.mediaDevices.getUserMedia(constraints)
-      .then(gotStream)
+      .then(gotDevices)
       .catch(error => {
         console.log('getUserMedia error: ', error);
       });
