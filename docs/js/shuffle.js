@@ -28,6 +28,8 @@
   }
 
   // Camera ---------------------------------------------------------------
+  
+// Get a video stream from the currently selected camera source.
   const getStream = () => {
     if (mediaStream) {
       mediaStream.getTracks().forEach(track => track.stop());
@@ -65,6 +67,8 @@
     }
   };
 
+  // Display the stream from the currently selected camera source, and then
+// create an ImageCapture object, using the video from the stream.
   const gotStream = stream => {
     mediaStream = stream;
     video.srcObject = stream;
