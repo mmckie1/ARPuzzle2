@@ -20,7 +20,7 @@
   const init = () => {
     video = document.querySelector(`video`);
     navigator.mediaDevices.enumerateDevices()
-      //.then(gotDevices)
+      .then(gotDevices)
       .catch(error => console.log('enumerateDevices() error: ', error))
       .then(getStream);
 
