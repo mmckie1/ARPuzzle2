@@ -67,7 +67,7 @@
     }
   };
 
-  // Display the stream from the currently selected camera source, and then
+// Display the stream from the currently selected camera source, and then
 // create an ImageCapture object, using the video from the stream.
   const gotStream = stream => {
     mediaStream = stream;
