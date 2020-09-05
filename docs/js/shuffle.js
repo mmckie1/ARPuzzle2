@@ -76,7 +76,7 @@
   };
 
   const getPicture = () => {
-    shuffle(puzzle);
+    //shuffle(puzzle);
     imageCapture.takePhoto()
       .then((img) => {
         image.src = URL.createObjectURL(img);
