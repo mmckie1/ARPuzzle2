@@ -127,6 +127,8 @@
       positionMarkers[i] = markers[i].object3D;
     }
 
+    console.log(positionMarkers);
+
     if (positionMarkers[puzzle[0]].position.x - positionMarkers[puzzle[8]].position.x !== 0) {
       for (let i = 0; i < numRow; ++i) {
         if (Math.abs(positionMarkers[puzzle[0 + (3 * i)]].position.x - positionMarkers[puzzle[1 + (3 * i)]].position.x) < tolerance && Math.abs(positionMarkers[puzzle[1 + (3 * i)]].position.x - positionMarkers[puzzle[2 + (3 * i)]].position.x) < tolerance
