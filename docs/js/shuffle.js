@@ -1,9 +1,11 @@
 {
   const image = new Image(),
+    // takePhotoButton = document.querySelector('button#takePhoto');
     takePhotoButton = document.querySelector('.takePhoto');
     videoSelect = document.querySelector('select#videoSource');
 
   let constraints, imageCapture, mediaStream, video;
+  // const video = document.querySelector('video');
 
   // Puzzle Vars
   const markers = document.querySelectorAll(`a-marker`),
@@ -18,7 +20,7 @@
     check = new Array(6);
 
   const init = () => {
-    video = document.querySelector(`video`);
+    video = document.querySelector('video');
     navigator.mediaDevices.enumerateDevices()
       .then(gotDevices)
       .catch(error => console.log('enumerateDevices() error: ', error))
@@ -32,7 +34,9 @@
 // Get a video stream from the currently selected camera source.
   const getStream = () => {
     if (mediaStream) {
-      mediaStream.getTracks().forEach(track => track.stop());
+      mediaStream.getTracks().forEach(track => {
+        track.stop()
+      });
     }
 
     // constraints = {
@@ -46,6 +50,7 @@
     constraints = {
       video: {deviceId: videoSource ? {exact: videoSource} : undefined}
     };
+
 
     navigator.mediaDevices.getUserMedia(constraints)
       .then(gotStream)
@@ -71,14 +76,16 @@
 // create an ImageCapture object, using the video from the stream.
   const gotStream = stream => {
     mediaStream = stream;
-    video.srcObject = stream;
+    //video.srcObject = stream;
     imageCapture = new ImageCapture(stream.getVideoTracks()[0]);
+    console.log(imageCapture);
   };
+
+
 
   const getPicture = () => {
     //shuffle(puzzle);
-    imageCapture.takePhoto()
-      .then((img) => {
+    imageCapture.takePhoto().then((img) => {
         image.src = URL.createObjectURL(img);
         image.setAttribute('crossOrigin', 'anonymous'); // Github CORS Policy
         image.addEventListener('load', () => createImagePieces(image));
